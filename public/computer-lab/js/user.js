@@ -1,13 +1,14 @@
 // set the easing factor 
 let easing = 0.07
 // radius of our circular avatar
+// we'll need a more responsive sizing solution when we have an actual image
 let r = 20
 
 // User object
 // x : initial x coord
 // y : initial y coord
-// id : 
-// displayName: 
+// id : str
+// displayName: str
 // avatar : path to an image 
 // 
 function User(x, y) {
@@ -38,7 +39,8 @@ function User(x, y) {
     
     // method for displaying the avatar along with its id
     this.show = () => {
-      // show avatar
+      // show avatar (load the image of the avatar)
+      // we'll have to find some default size 
       fill(0, 200, 0)
       ellipse(user.pos.x, user.pos.y, r*2, r*2)
       noStroke()
