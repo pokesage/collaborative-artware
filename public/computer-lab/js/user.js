@@ -1,4 +1,5 @@
-/* global */
+/* global createVector, loadImage, constrain, mouseX, mouseY, 
+displayWidth, displayHeight, image, fill, textAlign, textSize, text */
 let avatar
 let ease = 0.07
 /*
@@ -24,7 +25,10 @@ class User {
         this.desk = desk
     }
 
-    // Socket connections
+    // Socket events
+        // Connection
+        // Disconnect
+        // Movement
 
     // Updating user movement
     movement() {
