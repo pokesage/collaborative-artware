@@ -2,31 +2,45 @@
 Fields:
   x: initial x-coordinate (0 as default)
   y: initial y-coordinate (0 as default)
+  avatar: avatar image path (made at account creation)
+  w: the width of the avatar image
+  h: the height of the avatar image
   id: socket-id 
   display: display id (chosen at account creation)
-  avatar: avatar image path (made at account creation)
   desk: the index of the desk assigned to the user at connection
   ^Not sure if I am missing a relevant field 
 */
 class User {
-    constructor(x = 0, y = 0, id, display, avatar, desk) {
+    constructor(x, y, avatar, w, h, id, display, desk) {
         this.pos = createVector(x,y)
+        this.width = w
+        this.height = h
         this.id = id
         this.display = display
         this.avatar = avatar
         this.desk = desk
     }
 
+    // Socket connections
+
     // Updating user movement
     movement() {
-        if (abs(mouseX - user.pos.x) > 0.1) {
-            user.pos.x += (mouseX - user.pos.x) * 0.07
+        if (abs(mouseX - this.pos.x) > 0.1) {
+            this.pos.x += (mouseX - this.pos.x) * 0.07
         }
                   
-        if (abs(mouseY - user.pos.y) > 0.1) {
-            user.pos.y += (mouseY - user.pos.y) * 0.07
+        if (abs(mouseY - this.pos.y) > 0.1) {
+            this.pos.y += (mouseY - this.pos.y) * 0.07
         }
     }
+
+    // Restrict the users movement to within the canvas
+    constrain() {
+        this.pos.x = constrain(this.pos.x, w, displayWidth - w)
+        this.pos.y = constrain(this.pos.x, h, displayWidth - h)
+    }
+
+
 
 }
 
