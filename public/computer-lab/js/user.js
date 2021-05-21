@@ -2,6 +2,7 @@
 displayWidth, displayHeight, image, fill, textAlign, textSize, text */
 let avatar
 let ease = 0.07
+let socket
 /*
 Fields:
   x: initial x-coordinate (0 as default)
@@ -23,6 +24,11 @@ class User {
         this.display = display
         this.avatar = avatar
         this.desk = desk
+    }
+
+    connect(user) {
+        socket = io()
+        socket.emit('connect', user)
     }
 
     // Socket events : basically all the client side socket code goes here and main.js calls it

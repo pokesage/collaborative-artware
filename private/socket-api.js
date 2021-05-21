@@ -1,3 +1,4 @@
+// list of users
 const userToSocketId = new Map()
 
 module.exports = (socket, io) => {
