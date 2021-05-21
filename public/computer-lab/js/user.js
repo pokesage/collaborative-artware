@@ -25,9 +25,13 @@ class User {
         this.desk = desk
     }
 
-    // Socket events
-        // Connection
+    // Socket events : basically all the client side socket code goes here and main.js calls it
+        // Connection : 
+            // in the client side when a user connects we send user the relevant data
+            // and in socket-api.js we take that data and broadcast it
+            // then on the client side we listen for that data and update our view accordingly
         // Disconnect
+            //
         // Movement
 
     // Updating user movement
